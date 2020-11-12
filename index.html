@@ -1,1 +1,44 @@
-Dewin Page
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dewin的首页</title>
+<meta name="description" content="你的文案">
+
+var testIEComplete;	//检测IE页面是否加载完成的时间轮转
+window.onload = function () {
+	if(document.all) {//简单判断是否是IE
+		testIEComplete = setInterval('updateComplete()', 1000);
+	} else {
+		//火狐完成页面加载后，执行以下语句
+		dynamicLoad();
+	}
+}
+function updateComplete() {
+	if (document.readyState == "complete") {
+		try{
+			//IE完成页面加载后，执行以下语句
+			dynamicLoad();
+			clearInterval(testIEComplete);//执行成功，清除监听
+		 }catch(err){
+			return true;
+		}
+	 }
+}
+</head>
+  
+<body>
+	<div>
+		<ul>
+			<li id="n_index" class="cur"><a href="javascript:void(0)" title="返回首页">首页<span></span></a></li>
+			<li class="" id="n_product"><a href="javascript:void(0)" title="产品方案">产品方案<span></span></a></li>
+			<li id="n_service"><a href="javascript:void(0)" title="服务与支持">服务与支持<span></span></a></li>
+			<li id="n_cases"><a href="javascript:void(0)" title="客户案例">客户案例<span></span></a></li>
+			<li id="n_aboutus"><a href="javascript:void(0)" title="关于我们">关于我们<span></span></a></li>
+		</ul>
+	</div>
+<div>
+	<p>地址：河北省廊坊市 &nbsp; 邮编：111111 &nbsp;&nbsp;   业务咨询：123 456 7890</p>
+</div>
+</body>
+</html>
